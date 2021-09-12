@@ -683,7 +683,7 @@ def redirect_to_uri_allowed(uri, allowed_uris):
         print('path actual/expected: ' + parsed_uri.path + ' / ' + parsed_allowed_uri.path)
         print('scheme actual/expected: ' + parsed_uri.scheme + ' / ' + parsed_allowed_uri.scheme)
         print('hostname actual/expected: ' + parsed_uri.hostname + ' / ' + parsed_allowed_uri.hostname)
-        print('port actual/expected: ' + parsed_uri.port + ' / ' + parsed_allowed_uri.port)
+        print('port actual/expected: ' + str(parsed_uri.port) + ' / ' + str(parsed_allowed_uri.port))
 
         # From RFC 8252 (Section 7.3)
         #
@@ -700,7 +700,7 @@ def redirect_to_uri_allowed(uri, allowed_uris):
             and parsed_allowed_uri.port is None
         )
 
-        print('allowed_uri_is_loopback', allowed_uri_is_loopback)
+        print('allowed_uri_is_loopback', str(allowed_uri_is_loopback))
 
         if (
             allowed_uri_is_loopback
