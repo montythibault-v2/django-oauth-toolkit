@@ -674,10 +674,13 @@ def redirect_to_uri_allowed(uri, allowed_uris):
     uqs_set = set(parse_qsl(parsed_uri.query))
 
     print('oauth2 received uri: ' + uri)
-    print('oauth2 allowed uris: ' + ' '.join('allowed_uris'))
+    print('oauth2 allowed uris: ' + ' '.join(allowed_uris))
 
     for allowed_uri in allowed_uris:
         parsed_allowed_uri = urlparse(allowed_uri)
+
+
+        print('path actual/path expected: ' + parsed_uri.path + '/' + parsed_allowed_uri.path)
 
         # From RFC 8252 (Section 7.3)
         #
