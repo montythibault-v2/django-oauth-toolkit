@@ -672,6 +672,10 @@ def redirect_to_uri_allowed(uri, allowed_uris):
 
     parsed_uri = urlparse(uri)
     uqs_set = set(parse_qsl(parsed_uri.query))
+
+    print('oauth2 received uri: ' + uri)
+    print('oauth2 allowed uris: ' + ' '.join('allowed_uris'))
+
     for allowed_uri in allowed_uris:
         parsed_allowed_uri = urlparse(allowed_uri)
 
