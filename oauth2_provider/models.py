@@ -679,8 +679,11 @@ def redirect_to_uri_allowed(uri, allowed_uris):
     for allowed_uri in allowed_uris:
         parsed_allowed_uri = urlparse(allowed_uri)
 
-
-        print('path actual/path expected: ' + parsed_uri.path + '/' + parsed_allowed_uri.path)
+        print('current allowed_uri: ' + allowed_uri)
+        print('path actual/expected: ' + parsed_uri.path + ' / ' + parsed_allowed_uri.path)
+        print('scheme actual/expected: ' + parsed_uri.scheme + ' / ' + parsed_allowed_uri.scheme)
+        print('hostname actual/expected: ' + parsed_uri.hostname + ' / ' + parsed_allowed_uri.hostname)
+        print('port actual/expected: ' + parsed_uri.port + ' / ' + parsed_allowed_uri.port)
 
         # From RFC 8252 (Section 7.3)
         #
@@ -696,6 +699,9 @@ def redirect_to_uri_allowed(uri, allowed_uris):
             and parsed_allowed_uri.hostname in ["127.0.0.1", "::1"]
             and parsed_allowed_uri.port is None
         )
+
+        print('allowed_uri_is_loopback', allowed_uri_is_loopback)
+
         if (
             allowed_uri_is_loopback
             and parsed_allowed_uri.scheme == parsed_uri.scheme
